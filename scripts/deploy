@@ -32,7 +32,7 @@ bin/deploy 2> /dev/null     && . load-env-unknown
 seth send $SAI_PIP "poke(bytes32)" 0x000000000000000000000000000000000000000000000015af1d78b58c400000
 # Set the MKR price feed to 1040.49 USD
 seth send $SAI_PEP "poke(bytes32)" 0x00000000000000000000000000000000000000000000003867bb3260a7cf7200
-seth send $SAI_MOM "setCap(uint256)" $(seth --to-uint256 $(seth --to-wei 1000 eth))
+seth send $SAI_MOM "setCap(uint256)" $(seth --to-uint256 $(seth --to-wei 1000000000 eth))
 # Mint MKR, owned by default account
 seth send $SAI_GOV "mint(uint256)" 0x000000000000000000000000000000000000000000000015af1d78b58c400000
 cd -
@@ -135,4 +135,4 @@ cat > $OUT/addresses.json <<- EOM
 }
 EOM
 
-$CWD/collect-abis.sh
+$CWD/collect-abis
